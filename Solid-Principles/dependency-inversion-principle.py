@@ -5,12 +5,11 @@
 from abc import ABC, abstractmethod
 
 class Application:
-  def __init__(self,db):
+  def __init__(self,db):  ## dependency injection of database into application class which means that application class is not dependent on any specific database implementation and can work with any database that implements the Database interface
     self.db = db
     
-  def saveData(self):
-    return self.db.save()
-  
+  def saveData(self):  
+    return self.db.save()  
 class Database(ABC):
   @abstractmethod
   def save(self):

@@ -65,3 +65,18 @@ class ImageElement(DocumentElement):
 
     def render(self):
         print(f"Rendering image from: {self.imagePath}")
+
+class Client:
+    def main(self):
+        document = Document()
+        persistence = SaveToFile()
+        editor = DocumentEditor(document, persistence)
+
+        editor.addText("Hello, World!")
+        editor.addImage("/path/to/image.png")
+        editor.saveDocument()
+        editor.renderDocument()
+
+if __name__ == "__main__":
+    client = Client()
+    client.main() 

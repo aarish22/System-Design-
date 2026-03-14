@@ -1,52 +1,67 @@
 from abc import ABC, abstractmethod
 
 class Document:
-  def __init__(self,elements):
-    self.elements = [None]
-  
-  def addElement(self,element):
-    self.elements.append(element)
+    def __init__(self):
+        self.elements = []
+
+    def addElement(self, element):
+        self.elements.append(element)
+
 
 class DocumentEditor:
-  def __init__(self,persistance):
-    self.persistance = persistance
-    
-  def saveDocument(self,document):
-    self.persistance.save(document)
-  
-   
-class Persistance(ABC):
-  @abstractmethod
-  def save(self,document):
-    pass
+    def __init__(self, document, persistence):
+        self.document = document
+        self.persistence = persistence
 
-class saveToFile(Persistance):
-  def save(self,document):
-    print("Saving to file")
+    def addImage(self, imagePath):
+        imageElement = ImageElement(imagePath)
+        self.document.addElement(imageElement)
 
-class saveToCloud(Persistance):
-  def save(self,document):
-    print("Saving to cloud")
+    def addText(self, text):
+        textElement = TextElement(text)
+        self.document.addElement(textElement)
+
+    def saveDocument(self):
+        self.persistence.save(self.document)
+
+    def renderDocument(self):
+        for element in self.document.elements:
+            element.render()
+
+
+class Persistence(ABC):
+    @abstractmethod
+    def save(self, document):
+        pass
+
+
+class SaveToFile(Persistence):
+    def save(self, document):
+        print("Saving to file")
+
+
+class SaveToCloud(Persistence):
+    def save(self, document):
+        print("Saving to cloud")
+
 
 class DocumentElement(ABC):
-  @abstractmethod
-  def render(self):
-    pass
-    
+    @abstractmethod
+    def render(self):
+        pass
+
+
 class TextElement(DocumentElement):
-  def __init__(self,text):
-    self.text = text
-    
-  def render(self):
-    print(f"Rendering text: {self.text}")
+    def __init__(self, text):
+        self.text = text
+
+    def render(self):
+        print(f"Rendering text: {self.text}")
+
 
 class ImageElement(DocumentElement):
-  def __init__(self,imagePath):
-    self.imagePath = imagePath
-    
-  def render(self):
-    print(f"Rendering image from: {self.imagePath}")
+    def __init__(self, imagePath):
+        self.imagePath = imagePath
 
-
-    
-    
+    def render(self):
+        print(f"Rendering image from: {self.imagePath}")

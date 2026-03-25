@@ -1,3 +1,6 @@
+## document editor helper class with support for adding text and images, saving to different storage options, and rendering the document elements. The design follows the Open/Closed Principle, allowing for easy extension of new element types and persistence methods without modifying existing code.
+
+
 from abc import ABC, abstractmethod
 
 class Document:

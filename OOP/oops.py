@@ -1,3 +1,4 @@
+## oops is a fundamental concept in object-oriented programming (OOP) that allows developers to create classes and objects to model real-world entities and their interactions. OOP provides a way to structure code in a more modular and organized manner, making it easier to manage and maintain. The key principles of OOP include:
 from abc import ABC,abstractmethod
 import random
 class Bank(ABC):

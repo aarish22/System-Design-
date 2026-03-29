@@ -1,3 +1,4 @@
+## inheritance is a fundamental concept in object-oriented programming (OOP) that allows a new class (called a child or subclass) to inherit properties and behaviors (attributes and methods) from an existing class (called a parent or superclass). This promotes code reusability and establishes a natural hierarchical relationship between classes.
 class Car:
   def __init__(self, make, model, year):
     self.make = make

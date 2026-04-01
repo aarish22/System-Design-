@@ -1,4 +1,5 @@
-from abc import ABC,abstractmethod
+
+## Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program. In other words, if class B is a subclass of class A, then we should be able to replace A with B without breaking the functionality of the program. This principle is important for ensuring that our code is flexible and maintainable, as it allows us to use polymorphism and inheritance effectively.
 
 class DepositAcc(ABC):
   @abstractmethod

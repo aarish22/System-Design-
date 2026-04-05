@@ -1,5 +1,7 @@
 ## document editor helper class with support for adding text and images, saving to different storage options, and rendering the document elements. The design follows the Open/Closed Principle, allowing for easy extension of new element types and persistence methods without modifying existing code.
 
+## The Document class represents the document being edited, while the DocumentEditor class provides methods for adding elements, saving, and rendering. The Persistence interface defines the contract for saving documents, and concrete implementations like SaveToFile and SaveToCloud provide specific saving behavior. The DocumentElement interface allows for different types of elements (text and images) to be added to the document, each with its own rendering logic.
+
 
 from abc import ABC, abstractmethod
 
